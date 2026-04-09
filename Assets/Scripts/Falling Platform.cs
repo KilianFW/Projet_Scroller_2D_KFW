@@ -10,13 +10,24 @@ public class FallingPlatform : MonoBehaviour
     public float falltimer;
     public float respawntimer;
     public bool platformVisible = true;
+    public bool firstContact = false;
     
     [SerializeField] LayerMask groundLayer;
+
+    private void Start()
+    {
+        firstContact = false;
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.name);
-        timer = falltimer;
-        
+        if (firstContact == false)
+        {
+            Debug.Log(other.gameObject.name);
+            timer = falltimer;
+            firstContact = true;
+        }
+
         /*/*if (timer < 0f)
         {
             Debug.Log("Falling Platform");
@@ -51,7 +62,10 @@ public class FallingPlatform : MonoBehaviour
             platformVisible = false;
             timer = respawntimer;
         }
-        else gameObject.SetActive(true);
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
     
 
