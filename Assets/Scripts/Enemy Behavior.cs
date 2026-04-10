@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public LifeSystem player;
+    
     public float checkRadius;
     public float attackRadius;
     public float speed;
-    public int orientation;
     public bool chasing;
     
     private Rigidbody2D rb;
@@ -27,7 +28,30 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Update()
     {
-        movement = rb.linearVelocity;
-        Vector2 dir = movement;
+        //movement = rb.linearVelocity;
+        
+        if (Vector2.Distance(transform.position, target.position) <= checkRadius)
+        {
+            speed = 6;
+            //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            Vector2 directionToTarget = (target.position - transform.position).normalized;
+            directionToTarget.y = 0;
+            rb.linearVelocity =  speed * directionToTarget;
+        }
+        else
+        {
+            speed = 5;
+            rb.linearVelocity = new Vector2(speed * direction.x, 0);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Vector2 directionToTarget =  (target.position - transform.position).normalized; 
+            player.TakeDamage();
+            rb.linearVelocity = -directionToTarget;
+        }
     }
 }

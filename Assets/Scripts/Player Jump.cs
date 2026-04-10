@@ -5,6 +5,11 @@ public class PlayerJump : MonoBehaviour
 {
     public float jump;
     private bool isGrounded;
+
+    [Header("GroundCheck")] 
+    [SerializeField] private float _castDistance;
+    [SerializeField] private float _castRadius;
+    [SerializeField] private Color _gizmosColor;
     
     [SerializeField] LayerMask groundLayer;
 
@@ -27,6 +32,12 @@ public class PlayerJump : MonoBehaviour
 
     public bool GroundedCheck()
     {
-        return Physics2D.CircleCast(transform.position, .5f, Vector2.down, .525f, groundLayer);
+        return Physics2D.CircleCast(transform.position, _castRadius, Vector2.down, _castDistance, groundLayer);
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = _gizmosColor;
+        Gizmos.DrawWireSphere(transform.position +(Vector3.down*_castDistance), _castRadius);
     }
 }

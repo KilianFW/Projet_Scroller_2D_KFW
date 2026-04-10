@@ -8,7 +8,10 @@ public class Spikes : MonoBehaviour
     
     public void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Contact");
-        player.TakeDamage();
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Contact");
+            player.TakeDamage();
+        }
     }
 }
