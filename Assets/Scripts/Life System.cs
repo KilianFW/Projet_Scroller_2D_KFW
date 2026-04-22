@@ -20,7 +20,6 @@ public class LifeSystem : MonoBehaviour
     public void TakeDamage()
     {
         currentLife -= 1;
-        Debug.Log(currentLife);
         if (currentLife <= 0)
         {
             gameObject.SetActive(false);

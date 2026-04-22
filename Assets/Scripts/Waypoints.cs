@@ -8,12 +8,8 @@ public class Waypoints : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            reOrientation = other.GetComponent<EnemyBehavior>();
             reOrientation.direction *= -1;
         }
-    }
-
-    private void Start()
-    {
-        
     }
 }

@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 25
@@ -132,11 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7cc4b37eed9a79439a765d29aad82f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBehavior
+  player: {fileID: 0}
   checkRadius: 5
-  attackRadius: 1
+  attackRadius: 1.75
   speed: 5
   chasing: 0
   direction: {x: -1, y: 0}
+  attackCooldown: 0
 --- !u!70 &4247006788118217425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
