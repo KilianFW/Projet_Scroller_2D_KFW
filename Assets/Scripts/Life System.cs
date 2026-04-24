@@ -10,6 +10,7 @@ public class LifeSystem : MonoBehaviour
     public GameObject RestartButton;
     public GameObject checkPoint;
     
+    private Animator animator;
 
     private void Awake()
     {

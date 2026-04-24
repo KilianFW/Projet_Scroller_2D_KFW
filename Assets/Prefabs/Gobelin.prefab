@@ -134,10 +134,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBehavior
   player: {fileID: 0}
   checkRadius: 5
-  attackRadius: 1.75
+  attackRange: 3
   speed: 5
   chasing: 0
+  isNotTooHigh: 0
+  _castDistance: 1.7
+  _castRadius: 0.2
+  _gizmosColor: {r: 0.764151, g: 0.19824673, b: 0.19824673, a: 1}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   direction: {x: -1, y: 0}
+  isInChaseRange: 0
+  isAttackRange: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 1
+  stop: 0
   attackCooldown: 0
 --- !u!70 &4247006788118217425
 CapsuleCollider2D:

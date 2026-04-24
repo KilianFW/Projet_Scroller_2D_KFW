@@ -5,6 +5,8 @@ public class PlayerJump : MonoBehaviour
 {
     public float jump;
     private bool isGrounded;
+    
+    private Animator animator;
 
     [Header("GroundCheck")] 
     [SerializeField] private float _castDistance;
